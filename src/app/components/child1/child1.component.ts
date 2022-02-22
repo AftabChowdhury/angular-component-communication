@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {PersonalInfo} from "../../models/personalInfo.model";
 
 @Component({
   selector: 'app-child1',
@@ -6,12 +7,16 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./child1.component.scss']
 })
 export class Child1Component implements OnInit {
-  @Input() personalInfo: any;
+  @Input() personalInfo: PersonalInfo = {first_name: '', last_name: '', street: '', street_number: 0};
+  @Output() personName = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.personalInfo);
+  }
+
+  emitPersonName() {
+    this.personName.emit({full_name: this.personalInfo.first_name + ' ' + this.personalInfo.last_name});
   }
 
 }
