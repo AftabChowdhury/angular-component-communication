@@ -1,10 +1,6 @@
-<p>Parent Component</p>
-
 <p>Call child 1 component from Parent Component</p>
 <app-child1 [personalInfo] = personalInfo (personName)="getPersonFullName($event)"></app-child1>
+<p>Full Name: {{ fullName }} (parent component gets the full-name from child1 component)</p>
 <p>Call child 2 component from Parent Component</p>
 <app-child2 [personalInfo] = personalInfo (address)="getFullAddress($event)"></app-child2>
-<p>Full Name: </p>
-<p>{{ fullName }}</p>
-<p>Address: </p>
-<p>{{ address }}</p>
+<p>Address: {{ address }} (parent component gets the full address from child2 component)</p>
