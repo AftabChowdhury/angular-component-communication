@@ -21,7 +21,6 @@ export class ParentComponent implements AfterViewInit {
   @ViewChild(Child2Component) child2: any;
 
   ngAfterViewInit() {
-    console.log('this.child1.message', this.child1.message);
     Promise.resolve().then(() => this.messageChild1 = this.child1.message);
     setTimeout(() => {
       this.messageChild2 = this.child2.message
